@@ -1,7 +1,13 @@
 const { By, Builder } = require('selenium-webdriver');
+<<<<<<< HEAD
 //const assert = require('assert');
 
 async function checkBox() {
+=======
+const assert = require('assert');
+
+async function checkBox(params) {
+>>>>>>> c3bd745451849272816407895e83086c6e4d9f99
 
     let driver;
     try {
@@ -34,16 +40,26 @@ async function checkBox() {
         await driver.findElement(By.css('label[for="tree-node-downloads"]')).click();
         // to Assert that the home checkbox is not selected
         let checked = await driver.findElement(By.css('label[for="tree-node-home"]')).isSelected();
+<<<<<<< HEAD
         //assert.strictEqual(checked, false);
+=======
+        assert.strictEqual(checked, false);
+>>>>>>> c3bd745451849272816407895e83086c6e4d9f99
         console.log(`Is Home check box is Selected :"  ${checked}`);
 
 
     } catch (e) {
         console.log(e)
 
+<<<<<<< HEAD
     }  finally{
        await driver.quit();
    } 
+=======
+    }  //finally{
+       // await driver.quit();
+   //} 
+>>>>>>> c3bd745451849272816407895e83086c6e4d9f99
     
     }
     checkBox()
