@@ -1,4 +1,4 @@
-const { By, Builder } = require('selenium-webdriver');
+const { By, Builder, Key } = require('selenium-webdriver');
 
 // make a function for selcting Gender to avoid repeated lines
 
@@ -37,11 +37,11 @@ async function parcticeForm() {
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__year-dropdown-container--select")).click();
         await driver.findElement(By.css("option[value='2000']")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__day.react-datepicker__day--012")).click();
-
         
-        await driver.findElement(By.id("subjectsContainer")).click();
-        await driver.findElement(By.css('#subjectsContainer .subjects-auto-complete__control--is-focused')).sendKeys('t');
-
+        let input = await driver.findElement(By.xpath("//input[@id='subjectsInput']"))
+        await input.sendKeys('t');
+        await input.sendKeys(Key.ARROW_DOWN);
+        await input.sendKeys(Key.ENTER);
      
 
        
