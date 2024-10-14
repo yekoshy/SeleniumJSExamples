@@ -1,15 +1,31 @@
 const{By,Builder}=require('selenium-webdriver')
-
+const firefox = require('selenium-webdriver/firefox');
 
 async function test(){
 let driver;
 
+<<<<<<< HEAD
+try{
+    //Working with profile added extension
+    /*
+    let profile = "C:\\Users\\yasmi\\Desktop\\Firefox profile v2\\kouwcl0c.test";
+    const options = new firefox.Options();
+    options.setProfile(profile);
+    driver = await new Builder().forBrowser('firefox').setFirefoxOptions(options).build();
+    */
+    driver = await new Builder().forBrowser('firefox').build()
+    await driver.get('https://demoqa.com/radio-button')
+    await driver.manage().window().maximize();
+    let text = await driver.findElement(By.css('h1.text-center')).getText()
+    console.log(text)
+=======
     try {
         driver = await new Builder().forBrowser('firefox').build()
         await driver.get('https://demoqa.com/radio-button')
         
         let text = await driver.findElement(By.css('h1.text-center')).getText()
         console.log(text)
+>>>>>>> c3bd745451849272816407895e83086c6e4d9f99
 
         //Yes option
         let yesOption = await driver.findElement(By.id('yesRadio'));

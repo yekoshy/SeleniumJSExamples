@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "firefox": "^0.0.1",
-    "selenium-webdriver": "^4.24.0"
+    "selenium-webdriver": "^4.25.0"
   }
 }

@@ -7,6 +7,7 @@ async function test() {
         driver = await new Builder().forBrowser('firefox').build();
         let url = 'https://testpages.eviltester.com/styled/basic-web-page-test.html'
         await driver.get(url);
+        
         let title = await driver.getTitle();
         console.log(`title is ${title}`);
         console.log(`title length= ${title.length}`);
