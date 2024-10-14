@@ -1,6 +1,7 @@
 const {By, Builder} = require('selenium-webdriver');
 
-async function inputForm (params) {
+
+async function inputForm () {
 
     let driver;
     try{
