@@ -42,6 +42,7 @@ async function parcticeForm() {
         await input.sendKeys('t');
         await input.sendKeys(Key.ARROW_DOWN);
         await input.sendKeys(Key.ENTER);
+        //await driver.findElement(By.id("uploadPicture")).click();
      
 
        
