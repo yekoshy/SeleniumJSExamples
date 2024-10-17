@@ -1,4 +1,4 @@
-const { By, Builder } = require('selenium-webdriver');
+const { By, Builder, Key } = require('selenium-webdriver');
 
 async function inputValidation() {
 
@@ -8,7 +8,9 @@ async function inputValidation() {
         await driver.get('https://testpages.eviltester.com/styled/validation/input-validation.html');
         await driver.findElement(By.id("firstname")).sendKeys("first");
         await driver.findElement(By.id("surname")).sendKeys("lastNameName");
-        await driver.findElement(By.id("age")).sendKeys("20");
+        let age = await driver.findElement(By.id("age"));
+        //await age.sendKeys(10);
+        await age.sendKeys(Key.ARROW_UP);
         await driver.findElement(By.css("option[value='Ireland']")).click();
         await driver.findElement(By.id("notes")).sendKeys("Test");
         await driver.findElement(By.css("input[type='submit']")).click();
