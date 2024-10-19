@@ -38,7 +38,7 @@ async function PracticeForm() {
         await input.sendKeys(Key.ENTER);
 
         //upload file
-        let file = path.resolve("C:\\Users\\fatou\\Desktop\\Pour le test")
+        let file = path.resolve("C:\\Users\\fatou\\Desktop\\Test Selenium\\Pourletest")
         await driver.findElement(By.id('uploadPicture')).sendKeys(file)
        
         //Select state and city
