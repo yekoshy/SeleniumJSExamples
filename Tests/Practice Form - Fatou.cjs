@@ -1,6 +1,6 @@
 const {By, Builder, Key} = require('selenium-webdriver');
 const firefox = require('selenium-webdriver/firefox');
-const = require('path');
+const path = require('path');
 async function PracticeForm() {
 
     let driver;
@@ -56,4 +56,4 @@ async function PracticeForm() {
     
 }
 
-PracticeForm()
+PracticeForm()+
