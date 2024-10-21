@@ -1,0 +1,35 @@
+const {By, Builder} = require('selenium-webdriver');
+const firefox = require('selenium-webdriver/firefox');
+async function PracticeForm() {
+
+    let driver;
+    try{
+        driver = await new Builder().forBrowser('firefox').build();
+        let url = 'https://testpages.eviltester.com/styled/validation/input-validation.html'
+        await driver.get(url);
+        
+        await driver.findElement(By.id("firstname")).sendKeys("Sophie");
+        await driver.findElement(By.id("surname")).sendKeys("Juilleterettgd");
+        await driver.findElement(By.id("age")).sendKeys("18");
+        await driver.findElement(By.id("country")).click();
+        await driver.findElement(By.css('option[value="Austria"]')).click();
+        await driver.findElement(By.id('notes')).sendKeys('Day of remembrance');
+        await driver.findElement(By.css('input[type="submit"]')).click();
+
+         //Back
+        await driver.navigate().back();
+
+       //Forward
+        await driver.navigate().forward();
+
+        await driver.navigate().back();
+        await driver.navigate().refresh();
+    }catch(e){
+        console.log(e)
+    }finally{
+       // await driver.quit();
+    }
+    
+}
+
+PracticeForm()
