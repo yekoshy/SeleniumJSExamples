@@ -28,12 +28,12 @@ async function parcticeForm() {
         await driver.sleep(3000);
         //insert first name
         await driver.findElement(By.id("firstName")).sendKeys("Test first");
-         //insert first name
+        //insert first name
         await driver.findElement(By.id("lastName")).sendKeys("Last");
-         //insert Email address
+        //insert Email address
         await driver.findElement(By.id("userEmail")).sendKeys("test@admin.de");
         // here to call back a function for Gender
-        await gender(driver, false,false);
+        await gender(driver, false, false);
         // to insert the phone number
         await driver.findElement(By.id("userNumber")).sendKeys("015467904678");
         // to select the date of birth
@@ -43,23 +43,49 @@ async function parcticeForm() {
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__year-dropdown-container--select")).click();
         await driver.findElement(By.css("option[value='2000']")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__day.react-datepicker__day--012")).click();
-        // to insert and select the subjcts
-        //let input = await driver.findElement(By.id("subjectsInput"));
-       // await input.sendKeys('Maths');
-        //await input.sendKeys(Key.ARROW_DOWN);
-        //await input.sendKeys(Key.ENTER);
-         // to selected the hobbies
-        await driver.findElement(By.id(hobbies-checkbox-2)).click();
+        // to insert and select the subjcts here the applicatio gets submitted directly coudln't roote ths issue 
+       /* let input = await driver.findElement(By.xpath("//input[@id='subjectsInput']"));
+        await input.sendKeys('H');
+        await input.sendKeys(Key.ARROW_DOWN);
+        await input.sendKeys(Key.ENTER);*/
+        // to selected the hobbies
+        await driver.findElement(By.css("label[for='hobbies-checkbox-2']")).click();
+        await driver.findElement(By.css("label[for='hobbies-checkbox-3']")).click();
         // upload picuter
-        let img= path.resolve("C:\\Users\\5794\\Desktop\\SeleniumJSExamples\\Tests\\img.jpg ")
+        let img = path.resolve("C:\\Users\\5794\\Desktop\\SeleniumJSExamples\\Tests\\img.jpg ")
         await driver.findElement(By.id("uploadPicture")).sendKeys(img);
+        //insert current address
+        await driver.findElement(By.id("currentAddress")).sendKeys("to writ any thing");
+        // Select State and City
+        let state = await driver.findElement(By.id("react-select-3-input"));
+        await state.sendKeys("h");
+        await state.sendKeys(Key.ARROW_DOWN);
+        await state.sendKeys(Key.ENTER);
 
-       
-   
+        let city = await driver.findElement(By.id("react-select-4-input"));
+        await city.sendKeys("k");
+        await city.sendKeys(Key.ENTER); 
+        //submit the forum
+        await driver.executeScript("window.scrollTo(0, document.body.scrollHeight/2);");
+        await driver.sleep(3000);
+        await driver.findElement(By.css("button#submit")).click();
+
+
+ 
 
 
 
-      
+
+
+
+
+
+
+
+
+
+
+
 
     } catch (e) {
         console.log(e)
