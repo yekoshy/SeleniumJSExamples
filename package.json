@@ -10,8 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai-as-promised": "^8.0.0",
     "firefox": "^0.0.1",
     "path": "^0.12.7",
     "selenium-webdriver": "^4.25.0"
-  }
+  },
+  "devDependencies": {
+    "chai": "^5.1.1"
+  },
+  "type": "module"
 }

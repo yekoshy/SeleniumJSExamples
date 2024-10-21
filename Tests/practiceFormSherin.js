@@ -1,3 +1,4 @@
+const path = require("path");
 const { By, Builder, Key } = require('selenium-webdriver');
 
 // make a function for selcting Gender to avoid repeated lines
@@ -15,7 +16,6 @@ async function gender(driver, isMaleFlag, isFemaleFlag) {
 }
 
 
-
 async function parcticeForm() {
 
     let driver;
@@ -23,30 +23,43 @@ async function parcticeForm() {
         driver = await new Builder().forBrowser('firefox').build();
         await driver.get('https://demoqa.com/automation-practice-form');
         await driver.manage().window().maximize();
-        // to Scroldown to see the elements
+        // to Scroldlown to see the elements
         await driver.executeScript("window.scrollTo(0, document.body.scrollHeight/3);");
         await driver.sleep(3000);
+        //insert first name
         await driver.findElement(By.id("firstName")).sendKeys("Test first");
+         //insert first name
         await driver.findElement(By.id("lastName")).sendKeys("Last");
+         //insert Email address
         await driver.findElement(By.id("userEmail")).sendKeys("test@admin.de");
+        // here to call back a function for Gender
         await gender(driver, false,false);
+        // to insert the phone number
         await driver.findElement(By.id("userNumber")).sendKeys("015467904678");
+        // to select the date of birth
         await driver.findElement(By.id("dateOfBirthInput")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__month-dropdown-container--select")).click();
         await driver.findElement(By.css("option[value='4']")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__year-dropdown-container--select")).click();
         await driver.findElement(By.css("option[value='2000']")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__day.react-datepicker__day--012")).click();
-        
+        // to insert and select the subjcts
         let input = await driver.findElement(By.xpath("//input[@id='subjectsInput']"))
         await input.sendKeys('t');
         await input.sendKeys(Key.ARROW_DOWN);
         await input.sendKeys(Key.ENTER);
-        //await driver.findElement(By.id("uploadPicture")).click();
-     
+         // to selected the hobbies
+        await driver.findElement(By.id(hobbies-checkbox-2)).click();
+        // upload picuter
+        let img= path.resolve("C:\\Users\\5794\\Desktop\\SeleniumJSExamples\\Tests\\img.jpg ")
+        await driver.findElement(By.id("uploadPicture")).sendKeys(img);
 
        
    
+
+
+
+      
 
     } catch (e) {
         console.log(e)
