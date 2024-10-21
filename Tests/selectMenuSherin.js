@@ -1,6 +1,6 @@
-const { By, Builder, Key } = require('selenium-webdriver');
-const assert = require('assert/strict')
-const { Select } = require('selenium-webdriver');
+import { By, Builder, Key } from 'selenium-webdriver';
+import assert from 'assert'
+import { Select } from 'selenium-webdriver';
 
 
 async function selectMenu() {
