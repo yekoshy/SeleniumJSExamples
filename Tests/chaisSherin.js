@@ -12,7 +12,7 @@ const should = chai.should;
 import { assert } from 'chai';  // Using Assert style
 import { expect } from 'chai';  // Using Expect style
 import { should } from 'chai';  // Using Should style
-
+should()
 // Activate `should` style
 
 //chai.should();
