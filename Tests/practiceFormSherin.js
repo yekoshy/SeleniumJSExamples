@@ -1,5 +1,5 @@
-const path = require("path");
-const { By, Builder, Key } = require('selenium-webdriver');
+import path from 'path';
+import { By, Builder, Key } from 'selenium-webdriver';
 
 // make a function for selcting Gender to avoid repeated lines
 
@@ -44,10 +44,10 @@ async function parcticeForm() {
         await driver.findElement(By.css("option[value='2000']")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__day.react-datepicker__day--012")).click();
         // to insert and select the subjcts
-        let input = await driver.findElement(By.xpath("//input[@id='subjectsInput']"))
-        await input.sendKeys('t');
-        await input.sendKeys(Key.ARROW_DOWN);
-        await input.sendKeys(Key.ENTER);
+        //let input = await driver.findElement(By.id("subjectsInput"));
+       // await input.sendKeys('Maths');
+        //await input.sendKeys(Key.ARROW_DOWN);
+        //await input.sendKeys(Key.ENTER);
          // to selected the hobbies
         await driver.findElement(By.id(hobbies-checkbox-2)).click();
         // upload picuter

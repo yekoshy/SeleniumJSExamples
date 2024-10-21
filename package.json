@@ -13,6 +13,7 @@
     "chai-as-promised": "^8.0.0",
     "firefox": "^0.0.1",
     "path": "^0.12.7",
+    "save": "^2.9.0",
     "selenium-webdriver": "^4.25.0"
   },
   "devDependencies": {
