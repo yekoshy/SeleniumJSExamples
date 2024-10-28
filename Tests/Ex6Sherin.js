@@ -61,14 +61,12 @@ async function alerts() {
         await driver.wait(until.alertIsPresent());
         alert = await driver.switchTo().alert()
         await alert.dismiss();
-        /*let parentElement = await driver.findElement(By.xpath('//div[@id="javascriptAlertsWrapper"]/div[4]/div[1]'))
-        let childElements = await parentElement.findElements(By.xpath('./*'));
-        for(let child in childElements){
-         let className= await childElements[child].getAttribute('class');
-         console.log(classNam);
-        }
-
-        assert.notInclude(childElements,' text-success', 'The class is Not included')*/
+        let parentElement = await driver.findElement(By.xpath('//div[@id="javascriptAlertsWrapper"]/div[4]/div[1]'))
+        let childElements = await parentElement.findElements(By.xpath("./child::*"));
+        
+        assert.equal(childElements.length,1,'We are having more than one child!')
+        
+        
         
         
 
