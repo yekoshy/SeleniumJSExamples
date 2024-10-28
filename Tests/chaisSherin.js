@@ -1,13 +1,21 @@
-import * as chai from 'chai'; // Import the entire Chai library
+//import * as chai from 'chai'; // Import the entire Chai library
  // Assert no chaining Possible
  // Should, Expect  chaining is possibel
-const { expect, assert } = chai;
-chai.should();
-
-
+//const { expect, assert } = chai;
+//chai.should();
+/*
+const chai = require('chai');
+const assert = chai.assert;
+const expect = chai.expect;
+const should = chai.should;
+*/
+import { assert } from 'chai';  // Using Assert style
+import { expect } from 'chai';  // Using Expect style
+import { should } from 'chai';  // Using Should style
+should()
 // Activate `should` style
 
-chai.should();
+//chai.should();
 // Expect
 let a=1, b=1;
 expect(a).to.be.equals(b, "a and be are not equal");

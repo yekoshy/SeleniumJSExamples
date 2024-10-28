@@ -1,6 +1,6 @@
 const {By, Builder, Key} = require('selenium-webdriver');
 const firefox = require('selenium-webdriver/firefox');
-const = require('path');
+const path = require('path');
 async function PracticeForm() {
 
     let driver;
@@ -38,7 +38,7 @@ async function PracticeForm() {
         await input.sendKeys(Key.ENTER);
 
         //upload file
-        let file = path.resolve("C:\\Users\\fatou\\Desktop\\Test Selenium\\Pourletest")
+        let file = path.resolve("C:\\Users\\fatou\\Desktop\\Test Selenium\\Pourletest.png")
         await driver.findElement(By.id('uploadPicture')).sendKeys(file)
        
         //Select state and city
@@ -56,4 +56,4 @@ async function PracticeForm() {
     
 }
 
-PracticeForm()
+PracticeForm()+

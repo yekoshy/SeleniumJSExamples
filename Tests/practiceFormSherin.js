@@ -44,15 +44,15 @@ async function parcticeForm() {
         await driver.findElement(By.css("option[value='2000']")).click();
         await driver.findElement(By.css("#dateOfBirth .react-datepicker__day.react-datepicker__day--012")).click();
         // to insert and select the subjcts here the applicatio gets submitted directly coudln't roote ths issue 
-       /* let input = await driver.findElement(By.xpath("//input[@id='subjectsInput']"));
+        let input = await driver.findElement(By.xpath("//input[@id='subjectsInput']"));
         await input.sendKeys('H');
         await input.sendKeys(Key.ARROW_DOWN);
-        await input.sendKeys(Key.ENTER);*/
+        await input.sendKeys(Key.ENTER);
         // to selected the hobbies
         await driver.findElement(By.css("label[for='hobbies-checkbox-2']")).click();
         await driver.findElement(By.css("label[for='hobbies-checkbox-3']")).click();
         // upload picuter
-        let img = path.resolve("C:\\Users\\5794\\Desktop\\SeleniumJSExamples\\Tests\\img.jpg ")
+        let img = path.resolve(".\\img.jpg ")
         await driver.findElement(By.id("uploadPicture")).sendKeys(img);
         //insert current address
         await driver.findElement(By.id("currentAddress")).sendKeys("to writ any thing");
