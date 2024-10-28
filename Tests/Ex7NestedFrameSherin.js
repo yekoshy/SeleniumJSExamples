@@ -1,3 +1,4 @@
+import { assert } from 'chai';
 import{By, Builder} from 'selenium-webdriver';
 
 async function nestedFrames() {
@@ -12,12 +13,12 @@ async function nestedFrames() {
         let iframe = driver.findElement(By.id('frame1'));
         await driver.switchTo().frame(iframe);
         let iframeTitle= await driver.findElement(By.xpath("/html/body")).getText();
-        console.log(`first iframe title is:${iframeTitle}`);
+        assert.equal(`${iframeTitle}`,'Parent frame' );
         //navigating to child iframe
         let iframeSecond = driver.findElement(By.css('body > iframe'));
         await driver.switchTo().frame(iframeSecond);
         iframeTitle= await driver.findElement(By.xpath("/html/body/p")).getText();
-        console.log(`second iframe title is:${iframeTitle}`);
+        assert.equal(`${iframeTitle}`,'Child Iframe' );
         // Return to the top level
         await driver.switchTo().defaultContent();
 
