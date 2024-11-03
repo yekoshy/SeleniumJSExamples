@@ -18,7 +18,7 @@ async function getOutput(driver,op){
 }
 
 
-describe('Testsuit for testing Plus functionality', function () {
+describe('Testsuit for testing Basic Calc functionality', function () {
     let driver;
     
     before(async function(){
@@ -31,13 +31,14 @@ describe('Testsuit for testing Plus functionality', function () {
         await driver.quit();
     })
 
+    context('Addition', async function(){
     forEach([
         [3, 4, 7],
         [2, '-2', 0],
         ['z', 48, 'ERR'],
         [546, '&', 'ERR'],
       ]).it('Adding %s and %s then returns %s', async function(inp1, inp2, expected){
-
+        
         await setInput(driver,'number1',inp1)
         await setInput(driver,'number2',inp2)
         let result = await getOutput(driver,'plus');  
@@ -45,5 +46,67 @@ describe('Testsuit for testing Plus functionality', function () {
 
 
 
+    });})
+
+    context('Subtraction', async function(){
+    forEach([
+        [7, 4, 3],
+        [2, '-2', 4],
+        ['z', 48, 'ERR'],
+        [546, '&', 'ERR'],
+      ]).it('Subtracting %s and %s then returns %s', async function(inp1, inp2, expected){
+
+        await setInput(driver,'number1',inp1)
+        await setInput(driver,'number2',inp2)
+        let result = await getOutput(driver,'minus');  
+        assert.equal(result,expected,'Wrong Output!');
+
+
+
+    });})
+
+    context('Multiplication', async function(){
+        forEach([
+        [7, 4, 28],
+        [2, '-2', '-4'],
+        ['z', 48, 'ERR'],
+        [546, '&', 'ERR'],
+      ]).it('Multiplying %s and %s then returns %s', async function(inp1, inp2, expected){
+
+        await setInput(driver,'number1',inp1)
+        await setInput(driver,'number2',inp2)
+        let result = await getOutput(driver,'times');  
+        assert.equal(result,expected,'Wrong Output!');
+
+
+
+    });})
+
+    context('Division', async function(){
+        forEach([
+        [28, 4, 7],
+        [2, '-2', '-1'],
+        ['z', 48, 'ERR'],
+        [546, '&', 'ERR'],
+      ]).it('Dividing %s and %s then returns %s', async function(inp1, inp2, expected){
+
+        await setInput(driver,'number1',inp1)
+        await setInput(driver,'number2',inp2)
+        let result = await getOutput(driver,'divide');  
+        assert.equal(result,expected,'Wrong Output!');
+
+
+
     });
+    it.skip('Dividing by Zero', async function(){
+
+        await setInput(driver,'number1',8)
+        await setInput(driver,'number2',0)
+        let result = await getOutput(driver,'divide');  
+        assert.equal(result,'Cannot divide by zero','Wrong Output!');
+
+
+
+    });
+})
 });

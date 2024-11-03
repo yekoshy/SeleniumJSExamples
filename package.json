@@ -12,6 +12,7 @@
   "dependencies": {
     "chai-as-promised": "^8.0.0",
     "firefox": "^0.0.1",
+    "mocha-simple-html-reporter": "^2.0.0",
     "path": "^0.12.7",
     "save": "^2.9.0",
     "selenium-webdriver": "^4.25.0"
