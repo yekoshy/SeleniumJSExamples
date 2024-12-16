@@ -1,22 +1,30 @@
-import { BasePage } from "./basePage";
+import { BasePage } from "./basePage.js";
 
 
+class Login extends BasePage {
+    async getTitle(locator){
+        return await this.getText(locator);
+    }
 
-class Login extends BasePage  {
+    async setUsername(text){
+        await this.setText('#username',text);
+    }
 
- checkTitle(){
-   return this.getText('# login > h2')
- }
+    async setPassword(text){
+        await this.setText('#password',text);
+    }
 
- setUserName (test) {
+    async submit(){
+        await this.clickItem('#submit');
+    }
+    async getErrorMsg(){
+        return await this.getText('#error');
+    }
 
-  this.
-
-
- }
-
-
-
-
+    async isDisplayedErr(){
+        return await this.isDisplayed('#error');
+    }
 
 }
+
+export {Login}
