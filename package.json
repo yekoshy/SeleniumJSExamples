@@ -6,19 +6,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chai": "^5.1.2",
     "chai-as-promised": "^8.0.0",
     "firefox": "^0.0.1",
     "mocha": "^10.8.2",
-    "mocha-each": "^2.0.1",
     "mocha-simple-html-reporter": "^2.0.0",
     "path": "^0.12.7",
     "save": "^2.9.0",
-    "selenium-webdriver": "^4.27.0"
+    "selenium-webdriver": "^4.25.0",
+    "chai": "^5.1.2"
   },
-  "type": "module",
-  "scripts": {
-    "test": "mocha"
-  },
-  "description": ""
-}
+  "type": "module"
+  }
+  
