@@ -12,7 +12,7 @@ async function writeLogins(username,password){
 }
 
 async function testNegative(username,password,errMsg){
-    writeLogins(username,password);
+   await  writeLogins(username,password);
     let errFlag = await login.isDisplayedErr();
     assert.equal(errFlag,true,"Error msg isn't displayed!")
     let error = await login.getErrorMsg();
