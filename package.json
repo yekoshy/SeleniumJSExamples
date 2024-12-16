@@ -11,14 +11,26 @@
   "dependencies": {
     "chai-as-promised": "^8.0.0",
     "firefox": "^0.0.1",
+<<<<<<< HEAD
     "mocha": "^10.8.2",
+=======
+    "mocha-simple-html-reporter": "^2.0.0",
+>>>>>>> 4b241e6c2851a9e9bade309eb50fa0bc51961a6b
     "path": "^0.12.7",
     "save": "^2.9.0",
     "selenium-webdriver": "^4.25.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "chai": "^5.1.2"
   },
   "type": "module",
   "description": ""
+=======
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3",
+    "mocha-each": "^2.0.1"
+  },
+  "type": "module"
+>>>>>>> 4b241e6c2851a9e9bade309eb50fa0bc51961a6b
 }

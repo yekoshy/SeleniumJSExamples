@@ -4,7 +4,6 @@ const firefox = require('selenium-webdriver/firefox');
 async function test(){
 let driver;
 
-<<<<<<< HEAD
 try{
     //Working with profile added extension
     /*
@@ -18,14 +17,12 @@ try{
     await driver.manage().window().maximize();
     let text = await driver.findElement(By.css('h1.text-center')).getText()
     console.log(text)
-=======
     try {
         driver = await new Builder().forBrowser('firefox').build()
         await driver.get('https://demoqa.com/radio-button')
         
         let text = await driver.findElement(By.css('h1.text-center')).getText()
         console.log(text)
->>>>>>> c3bd745451849272816407895e83086c6e4d9f99
 
         //Yes option
         let yesOption = await driver.findElement(By.id('yesRadio'));
