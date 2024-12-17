@@ -21,10 +21,10 @@ async function testNegative(username,password,errMsg){
 
 describe('Testing Login Page', async function(){
     before(async function (){
-        login.go_to_url('https://practicetestautomation.com/practice-test-login/');
+        await login.go_to_url('https://practicetestautomation.com/practice-test-login/');
     })
     after(async function(){
-        login.quit();
+        await login.quit();
     })
 
     it('Test case 1: Negative username test', async function(){
@@ -35,7 +35,24 @@ describe('Testing Login Page', async function(){
         await testNegative('student','incorrectPassword','Your password is invalid!') 
     })
     it('Test case 3: Positive test', async function(){
-        writeLogins('','');
+        await writeLogins('student','Password123');
+
+        let url = await login.getURL();
+        assert.include(url,'logged-in-successfully','Wrong Page!')
+        
+        let title = await login.getTitle('div.post-header > h1');
+        assert.equal(title,'Logged In Successfully','Wrong Title!');
+        
+        let btnFlag = await login.isDisplayed('a.wp-block-button__link');
+        assert.equal(btnFlag,true,'Log out button not there !');
+        
+        await login.clickItem('a.wp-block-button__link');
+        
+        url = await login.getURL();
+        assert.include(url,'practice-test-login','Wrong Page!')
+        
+        title = await login.getTitle('#login > h2');
+        assert.equal(title,'Test login','Wrong title!');
         
     })
 
