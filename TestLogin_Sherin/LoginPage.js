@@ -7,11 +7,11 @@ class Login extends BasePage {
     }
 
     async setUsername(text){
-        await this.setText('#username',text);
+        await this.setText('username',text);
     }
 
     async setPassword(text){
-        await this.setText('#password',text);
+        await this.setText('password',text);
     }
 
     async submit(){

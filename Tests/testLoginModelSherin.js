@@ -15,7 +15,9 @@ async function inputLogins(username, password) {
 async function testNegative(username, password, errMsg) {
     let title = await login.getTitle('#login > h2');
     assert.equal(title, 'Test login', 'Wrong title!');
+
     await inputLogins(username, password);
+    
     let errFlag = await login.isDisplayedErr();
     assert.equal(errFlag, true, "Error msg isn't displayed!")
     let error = await login.getErrorMsg();
@@ -31,18 +33,21 @@ describe('Testing Login Page', async function () {
     })
 
     it('Test case 1: Negative username test', async function () {
-        await inputLogins('incorrectUser', 'Password123');
-        await testNegative('Your username is invalid!');
+        
+        await testNegative('incorrectUser', 'Password123','Your username is invalid!');
 
     })
+
     it('Test case 2: Negative password test', async function () {
-        await inputLogins('student', 'incorrectPassword');
-        await testNegative('Your password is invalid!')
+       
+        await testNegative('student', 'incorrectPassword','Your password is invalid!')
     })
+
     it('Test case 3: Positive test', async function () {
         await inputLogins('student', 'password123');
         //Verify new page contains expected text ('Congratulations' or 'successfully logged in')
-        let pageTxt = await driver.findElement(By.css("p.has-text-align-center > strong")).getText();
+        let pageTxt = await login.getTitle('p.has-text-align-center > strong');
+        
         assert.include(pageTxt, 'Congratulations' || 'successfully logged in', 'Page text doe not includ any of the give texts');
 
         //Verify button Log out is displayed on the new page

@@ -15,6 +15,12 @@ class BasePage{
     async setText(locator,text){
         await driver.findElement(By.id(locator)).sendKeys(text);
     }
+
+    async getText(locator){
+        let result =  await driver.findElement(By.css(locator))
+        await driver.wait(until.elementIsVisible(result), 2000);
+        return result.getText()
+    }
     
     async readText(locator){
         let result = await driver.findElement(By.css(locator));
