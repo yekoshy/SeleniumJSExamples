@@ -3,16 +3,14 @@ import {assert} from 'chai';
 
 const login = new Login();
 
-async function writeLogins(username,password){
+
+
+async function testNegative(username,password,errMsg){
     let title = await login.getTitle('#login > h2');
     assert.equal(title,'Test login','Wrong title!');
     await login.setUsername(username);
     await login.setPassword(password);
-    await login.clickItem('#submit');
-}
-
-async function testNegative(username,password,errMsg){
-    writeLogins(username,password);
+    await login.clickItem('#submit')
     let errFlag = await login.isDisplayedErr();
     assert.equal(errFlag,true,"Error msg isn't displayed!")
     let error = await login.getErrorMsg();
@@ -35,7 +33,8 @@ describe('Testing Login Page', async function(){
         await testNegative('student','incorrectPassword','Your password is invalid!') 
     })
     it('Test case 3: Positive test', async function(){
-        writeLogins('','');
+    
+
         
     })
 
