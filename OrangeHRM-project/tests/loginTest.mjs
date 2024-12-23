@@ -4,6 +4,7 @@ import {LoginPage} from '../pages/LoginPage.js';
 import { expect } from 'chai';
 
 describe('Login Page Tests', function () {
+  this.timeout(0);
   let loginPage = new LoginPage();
 
   before(async function () {

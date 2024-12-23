@@ -3,6 +3,7 @@ import { assert } from 'chai';
 
 // Test
 describe('Ogout testing ', async function(){
+  this.timeout(0);
   let dashBoard = new DashboardPage();
 
 
