@@ -11,9 +11,6 @@ describe('Login Page Tests', function () {
   });
 
 
-  after(async function () {
-    await loginPage.quit();
-  });
 
   it('Verify Login Page Elements', async function () {
     expect(await loginPage.isDisplayedUsername()).to.be.true;

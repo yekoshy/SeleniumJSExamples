@@ -1,22 +1,24 @@
-import BasePage from '../utility/basepage.js';
-import { By } from 'selenium-webdriver';
+import {BasePage} from '../utility/basepage.js';
 
-class DashboardPage {
-  constructor(driver) {
-      this.driver = driver;
-      this.profileMenu = By.css('.oxd-userdropdown-name');
-      this.logoutButton = By.xpath('//a[text()="Logout"]');
-  }
+
+class DashboardPage extends BasePage{
+
 
   async verifyDashboardPageLoaded() {
-      await this.driver.wait(until.elementLocated(this.profileMenu), 5000);
+      
+      return await this.isDisplayed('.oxd-userdropdown-name');
   }
 
   async logout() {
-      await this.driver.findElement(this.profileMenu).click();
-      await this.driver.wait(until.elementLocated(this.logoutButton), 5000);
-      await this.driver.findElement(this.logoutButton).click();
+      
+      await this.clickItem('.oxd-userdropdown-name');
+      let flag = await this.isDisplayed("a[href$='logout']");
+      if(flag){
+        await this.clickItem("a[href$='logout']");  
+      }
+      
+      
   }
 }
 
-export default new DashboardPage();
+export {DashboardPage};

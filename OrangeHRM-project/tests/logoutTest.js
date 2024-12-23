@@ -1,23 +1,24 @@
-const DashboardPage = require('../pages/dashboardPage');
-
-// Add a method in DashboardPage to handle logout
-class DashboardPage extends BasePage {
-  constructor(driver) {
-    super(driver);
-    this.userDropdown = By.css('.oxd-userdropdown-name');
-    this.logoutButton = By.linkText('Logout');
-  }
-
-  async logout() {
-    await this.clickElement(this.userDropdown);
-    await this.clickElement(this.logoutButton);
-  }
-}
+import {DashboardPage} from '../pages/DashboardPage.js';
+import { assert } from 'chai';
 
 // Test
-it('Logout Functionality', async function () {
-  const dashboardPage = new DashboardPage(driver);
-  await dashboardPage.logout();
-  // Verify redirection to login page
-  expect(await loginPage.isElementDisplayed(loginPage.loginButton)).to.be.true;
-});
+describe('Ogout testing ', async function(){
+  let dashBoard = new DashboardPage();
+
+
+
+  after(async function () {
+    await dashBoard.quit();
+  });
+
+  it('Logout Functionality', async function () {
+    let flag = await dashBoard.verifyDashboardPageLoaded();
+    assert.isTrue(flag,'Dashboard not found');
+    await dashBoard.logout();
+    let url = await dashBoard.getURL();
+    assert.include(url,'login',"We aren't back to the login page ")
+    
+  });
+  
+})
+
