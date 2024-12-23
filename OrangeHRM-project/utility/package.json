@@ -11,7 +11,8 @@
   "dependencies": {
     "chromedriver": "^131.0.4",
     "mocha": "^11.0.1",
-    "selenium-webdriver": "^4.27.0"
+    "selenium-webdriver": "^4.27.0",
+    "firefox": "^0.0.1"
   },
     "type": "module"
 }

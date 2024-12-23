@@ -1,5 +1,5 @@
 // tests/loginTest.js
-import { Builder } from 'selenium-webdriver';
+
 import {LoginPage} from '../pages/LoginPage.js';
 import { expect } from 'chai';
 
@@ -16,9 +16,9 @@ describe('Login Page Tests', function () {
   });
 
   it('Verify Login Page Elements', async function () {
-    expect(await loginPage.isElementDisplayed(loginPage.usernameField)).to.be.true;
-    expect(await loginPage.isElementDisplayed(loginPage.passwordField)).to.be.true;
-    expect(await loginPage.isElementDisplayed(loginPage.loginButton)).to.be.true;
+    expect(await loginPage.isDisplayedUsername()).to.be.true;
+    expect(await loginPage.isDisplayedPassword()).to.be.true;
+    expect(await loginPage.isDisplayedLogin()).to.be.true;
   });
 
   it('Login with Valid Credentials', async function () {

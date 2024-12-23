@@ -1,6 +1,6 @@
 import {By, Builder, Key, until} from 'selenium-webdriver';
-var driver = new Builder().forBrowser('chrome').build();
-//driver.manage().setTimeouts({implicit: (10000)});
+var driver = new Builder().forBrowser('firefox').build();
+driver.manage().setTimeouts({implicit: (10000)});
 
 
 class BasePage{

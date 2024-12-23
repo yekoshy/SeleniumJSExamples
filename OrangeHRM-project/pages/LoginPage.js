@@ -1,30 +1,33 @@
 import {BasePage} from '../utility/basepage.js';
-import { By } from 'selenium-webdriver';
+
 
 class LoginPage extends BasePage {
-  
-    constructor() {
-    super();
-    this.usernameField = By.name('username');
-    this.passwordField = By.name('password');
-    this.loginButton = By.css('button[type="submit"]');
-    this.errorMessage = By.css('.oxd-alert-content-text');
-  }
 
   async enterUsername(username) {
-    await this.enterText(this.usernameField, username);
+    await this.setText("input[name='username']", username);
   }
 
+  async isDisplayedUsername(){
+    return await this.isDisplayed("input[name='username']");
+  }
+
+  async isDisplayedPassword(){
+    return await this.isDisplayed("input[name='password']");
+  }
+  
+  async isDisplayedLogin(){
+    return await this.isDisplayed('button[type="submit"]');
+  }
   async enterPassword(password) {
-    await this.enterText(this.passwordField, password);
+    await this.setText("input[name='password']", password);
   }
 
   async clickLogin() {
-    await this.clickElement(this.loginButton);
+    await this.clickItem('button[type="submit"]');
   }
 
   async getErrorMessage() {
-    return await this.getText(this.errorMessage);
+    return await this.getText('.oxd-alert-content-text');
   }
 }
 
