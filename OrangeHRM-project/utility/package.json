@@ -1,0 +1,20 @@
+{
+  "name": "orangehrm-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha ../tests/loginTest.mjs ../tests/EmployeeTest.js ../tests/logoutTest.js --no-timeouts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chromedriver": "^131.0.4",
+    "firefox": "^0.0.1",
+    "gulp-mocha": "^10.0.1",
+    "mocha": "^11.0.1",
+    "selenium-webdriver": "^4.27.0",
+    "gulp": "^5.0.0"
+  },
+  "type": "module"
+}

@@ -3,8 +3,11 @@ import {assert} from 'chai';
 
 const login = new Login();
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 92e1a29fa34e5b64f48256580d05c9585b9cbe92
 async function testNegative(username,password,errMsg){
     let title = await login.getTitle('#login > h2');
     assert.equal(title,'Test login','Wrong title!');
@@ -42,8 +45,12 @@ describe('Testing Login Page', async function(){
     })
     it('Test case 3: Positive test', async function(){
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 
+=======
+        await testPositive('student','Password123', 'Congratulations student. You successfully logged in!')
+>>>>>>> 92e1a29fa34e5b64f48256580d05c9585b9cbe92
 =======
         await writeLogins('student','Password123');
 
@@ -65,6 +72,7 @@ describe('Testing Login Page', async function(){
         assert.equal(title,'Test login','Wrong title!');
 >>>>>>> 23070656e85da1fe828d12e08ba132f2db02f157
         
+>>>>>>> 23070656e85da1fe828d12e08ba132f2db02f157
     })
 
 
