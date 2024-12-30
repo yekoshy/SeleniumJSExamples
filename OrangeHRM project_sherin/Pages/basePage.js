@@ -17,10 +17,22 @@ class BasePage{
         await driver.findElement(By.css(locator)).sendKeys(text);
     }
 
-    async setTextbyXpath(loctaor,text){
-        await driver.findElement(By.xpath(locator)).sendKeys(text);
+    async setTextbyXpath(locator,text){
+        let input = await driver.findElement(By.xpath(locator));
+        await driver.wait(until.elementLocated(input),3000);
+        await input.sendKeys(text);
     }
     
+    async getAllElements(locator){
+        //let result = await driver.findElement(By.css('div.orangehrm-horizontal-padding >span'));
+        //await driver.actions().scroll(0, 0, 0, 0, result).perform()
+        //await driver.executeScript("window.scrollTo(0, document.body.scrollHeight/3);");
+        await this.clickItem('div.--toggle>button');
+        let list = await driver.findElements(By.css(locator));
+        console.log(list);
+        return list;
+    }
+
     async getText(locator){
         let result =  await driver.findElement(By.css(locator))
         await driver.wait(until.elementIsVisible(result), 3000);

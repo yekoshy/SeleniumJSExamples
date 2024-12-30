@@ -4,7 +4,7 @@
   "description": "",
   "main": "employeeTest.js",
   "scripts": {
-    "test":"npx mocha \"C:/Users/5794/Desktop/SeleniumJSExamples/OrangeHRM project_sherin/tests/loginTest.js\" \"C:/Users/5794/Desktop/SeleniumJSExamples/OrangeHRM project_sherin/tests/EmployeeTest.js\" \"C:/Users/5794/Desktop/SeleniumJSExamples/OrangeHRM project_sherin/tests/logoutTest.js\" --no-timeouts"
+    "test":"npx mocha \"./tests/loginTest.js\" \"./tests/EmployeeTest.js\" \"./tests/logoutTest.js\" --no-timeouts"
   },
   "keywords": [],
   "author": "",

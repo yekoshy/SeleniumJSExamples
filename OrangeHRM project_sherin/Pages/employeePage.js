@@ -37,8 +37,8 @@ class Employee extends BasePage {
 
     async setUserID(text) {
 
-        //await this.setText('div.oxd-grid-2.orangehrm-full-width-grid > div > div > div:nth-child(2) > input', text);
-        await this.setTextbyXpath('//div[input])[6]/input',text);
+        await this.setText('div.oxd-grid-2.orangehrm-full-width-grid > div > div > div:nth-child(2) > input', text);
+        //await this.setTextbyXpath("(//div[input])[6]/input",text);
     }
 
 
@@ -48,6 +48,20 @@ class Employee extends BasePage {
         let text = await this.getText("div > div.oxd-table-body > div:nth-child(1) > div > div:nth-child(3)");
         console.log(text);  // Log the result to see if the text is correctly retrieved
         return text;
+
+    }
+
+    async getAllEmployeesName(){
+        let names = [];
+        let elements = await this.getAllElements("div.card-center>div.card-item>div.oxd-table-cell>div.oxd-table-card-cell>div.data");
+        console.log(elements);
+        elements.forEach((ele)=>{
+            let txt = ele.getText();
+            names.push(txt);
+            console.log(txt);
+
+        })
+        return names;
 
     }
 
@@ -69,7 +83,7 @@ class Employee extends BasePage {
 
     async insertUserID(text) {
         //return await this.setText("div.oxd-form-row > div > div:nth-child(2) > div > div:nth-child(2) > input", text);
-        await this.setTextbyXpath('//div[input])[3]/input',text);
+        await this.setTextbyXpath("(//div[input])[3]/input",text);
     }
   
 
