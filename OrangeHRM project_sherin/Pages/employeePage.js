@@ -37,7 +37,8 @@ class Employee extends BasePage {
 
     async setUserID(text) {
 
-        await this.setText('div.oxd-grid-2.orangehrm-full-width-grid > div > div > div:nth-child(2) > input', text);
+        //await this.setText('div.oxd-grid-2.orangehrm-full-width-grid > div > div > div:nth-child(2) > input', text);
+        await this.setTextbyXpath('//div[input])[6]/input',text);
     }
 
 
@@ -67,8 +68,8 @@ class Employee extends BasePage {
 
 
     async insertUserID(text) {
-        return await this.setText("div.oxd-form-row > div > div:nth-child(2) > div > div:nth-child(2) > input", text);
-
+        //return await this.setText("div.oxd-form-row > div > div:nth-child(2) > div > div:nth-child(2) > input", text);
+        await this.setTextbyXpath('//div[input])[3]/input',text);
     }
   
 
